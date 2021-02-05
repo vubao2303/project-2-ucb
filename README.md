@@ -1,4 +1,3 @@
-# project-2-ucb
 # Project-2
 
 
@@ -23,7 +22,7 @@ description
 [Deployed Link]()  
 
 # Table of Contents 
-[Tittle](#)
+[Tittle](#Project-2)
 
 [Authors](#Authors)
 
