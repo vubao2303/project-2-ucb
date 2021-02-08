@@ -7,17 +7,36 @@ let currentUserId;
 
 
 
-	//Create new party 
-	$("#createPartyBtn").on("click", function () {
-		$.post("/api/newparty", {
-			title: $("#eventTitle").val().trim(),
-			theme: $("#eventTheme").val().trim(),
-			date: $("#eventDate").val(),
-			time: $("#eventTime").val(),
-			location: $("#eventLoc").val().trim(),
-			hostId: currentUserId
-		}).then(function () {
-			window.location.reload();
-		})
+	// update button in my events component
+$("#createPartyBtn").on("click", event => {
+  event.preventDefault();
+  let btn = event.target;
+  let eventId = $(btn).data("id");
+  let data = {
+    title: $(`#event${eventId}-title`).val().trim(),
+    description: $(`#event${eventId}-description`).val().trim(),
+  }
+  updateEvent(eventId, data).then(() => {
+    window.location.replace("./main")
+  })
+})
+});
+// trying tringtr atiorfdpfakjdhfka
+$("#createPartyBtn").on(`submit`, event => {
+	event.preventDefault();
+
+	var newparty = {
+		name: $("#eventTitle").val().trim()
+	};
+
+	$.ajax("/api/newparty", {
+		type: `POST`,
+		data: newparty
+	}).then(() => {
+		location.reload();
 	});
+
+
+
+
 });

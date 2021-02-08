@@ -69,7 +69,7 @@ module.exports = function (app) {
 			hostId: req.body.hostId
 		})
 			.then(function(){
-				res.sendStatus(200);
+				res.send(200);
 			})
 			// .catch(function(err){
 			// 	res.status(401).json(err);
@@ -89,7 +89,12 @@ module.exports = function (app) {
 
 		})
 	}
-
+//  bbbbbtrying
+app.post("/api/newparty", (req, res) => {
+  burger.create(["eventTitle"], [req.body.name], result => {
+    res.json({ id: result.insertId });
+  });
+});
 
 };
 
